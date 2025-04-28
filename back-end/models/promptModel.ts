@@ -14,16 +14,30 @@ const promptSchema = new mongoose.Schema({
         required:true,
     },
     tags:{
-        type: String
+        type: String,
+        required: true
     },
     author:{
         type:String,
+        required: true
     },
     model:{
         type:String,
     },
     createdAt: {
-        type: Date
+        type: Date,
+        required:true
+    },
+    rating: {
+        type:Number,
+        required:true,
+        default:0
     }
 
+},{
+    timestamps:true
 })
+
+const Prompt = mongoose.model("Prompt", promptSchema)
+
+export default Prompt;
